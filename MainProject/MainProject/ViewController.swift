@@ -72,14 +72,12 @@ class ViewController: UIViewController {
     extension ViewController: GMSAutocompleteViewControllerDelegate {
 
       // Handle the user's selection.
-      func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        print("Place name: \(String(describing: place.name))")
-        print("Place ID: \(String(describing: place.placeID))")
-        print("Place attributions: \(String(describing: place.attributions))")
+       func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        print("Place name: \(place.name)")
+        print("Place address: \(place.formattedAddress)")
+        print("Place attributions: \(place.attributions)")
         dismiss(animated: true, completion: nil)
       }
-
-        NSString*
         
       func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         // TODO: handle the error.
