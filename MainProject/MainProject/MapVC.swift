@@ -59,7 +59,9 @@ extension MapVC: CLLocationManagerDelegate {
 
 extension MapVC: GMSAutocompleteViewControllerDelegate {
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-         print("Place name: \(String(describing: place.name))")
+        
+//         print("Place name: \(String(describing: place.name))")
+        print("Place name: \(place.name ?? "")")
        dismiss(animated: true, completion: nil)
        
        self.mapView.clear()
@@ -73,6 +75,11 @@ extension MapVC: GMSAutocompleteViewControllerDelegate {
        
        //self.delegate?.getThePlaceAddress(vc: self, place: placeGmap, tag: self.FieldTag)
    
+        //DEBUG SECTION
+print("Place Latitude: \(place.coordinate.latitude)")
+print("Place Longitude: \(place.coordinate.longitude)")
+        //DEBUG SECTION
+
        let cord2D = CLLocationCoordinate2D(latitude: (place.coordinate.latitude), longitude: (place.coordinate.longitude))
        
        let marker = GMSMarker()
