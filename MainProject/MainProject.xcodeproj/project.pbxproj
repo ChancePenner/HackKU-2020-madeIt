@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		28E5F38523EF3204004F96D4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 28E5F38423EF3204004F96D4 /* Alamofire */; };
+		28E5F38723EF54F1004F96D4 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E5F38623EF54F1004F96D4 /* MainMenu.swift */; };
 		291E9AD86C6DB0C7409F972E /* libPods-MainProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C901A761E18965F054E40E66 /* libPods-MainProject.a */; };
 		9BD5AADD23EF1D9600796BFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5AADC23EF1D9600796BFE /* AppDelegate.swift */; };
 		9BD5AADF23EF1D9600796BFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5AADE23EF1D9600796BFE /* SceneDelegate.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		277731258400B3EC2AA19359 /* Pods-MainProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainProject.release.xcconfig"; path = "Target Support Files/Pods-MainProject/Pods-MainProject.release.xcconfig"; sourceTree = "<group>"; };
+		28E5F38623EF54F1004F96D4 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		2F63DD3246B4080C7AE4E8BE /* Pods-MainProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainProject.debug.xcconfig"; path = "Target Support Files/Pods-MainProject/Pods-MainProject.debug.xcconfig"; sourceTree = "<group>"; };
 		9BD5AAD923EF1D9600796BFE /* MainProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MainProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD5AADC23EF1D9600796BFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				9BD5AADC23EF1D9600796BFE /* AppDelegate.swift */,
 				9BD5AADE23EF1D9600796BFE /* SceneDelegate.swift */,
 				9BD5AAE023EF1D9600796BFE /* ViewController.swift */,
+				28E5F38623EF54F1004F96D4 /* MainMenu.swift */,
 				9BD5AAE223EF1D9600796BFE /* Main.storyboard */,
 				9BD5AAE523EF1D9600796BFE /* Assets.xcassets */,
 				9BD5AAE723EF1D9600796BFE /* LaunchScreen.storyboard */,
@@ -338,6 +341,7 @@
 				9BD5AAE123EF1D9600796BFE /* ViewController.swift in Sources */,
 				9BD5AADD23EF1D9600796BFE /* AppDelegate.swift in Sources */,
 				9BD5AADF23EF1D9600796BFE /* SceneDelegate.swift in Sources */,
+				28E5F38723EF54F1004F96D4 /* MainMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
