@@ -98,7 +98,7 @@ extension ViewController: GMSAutocompleteViewControllerDelegate {
     print("Place address: \(place.formattedAddress ?? "")")
     print("Place attributions: \(String(describing: place.attributions))")
     print("Place Latitude: \(place.coordinate.latitude)")
-    print("Place Latitude: \(place.coordinate.longitude)")
+    print("Place Longitude: \(place.coordinate.longitude)")
 
     // Get the address components.
     if let addressLines = place.addressComponents {
