@@ -62,7 +62,7 @@ extension MapVC: GMSAutocompleteViewControllerDelegate {
         
 //         print("Place name: \(String(describing: place.name))")
         print("Place name: \(place.name ?? "")")
-       dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
        
        self.mapView.clear()
        self.txtSearch.text = place.name
@@ -100,7 +100,7 @@ print("Place Longitude: \(place.coordinate.longitude)")
     }
     
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     
