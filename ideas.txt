@@ -1,0 +1,3 @@
+SafeVibes:
+1. Set route
+2. If you stray off the path, send alert when you reach it
