@@ -35,51 +35,7 @@ class ViewController: UIViewController {
     marker2.snippet = "Hangzhou"
     marker2.map = mapView
       
-      
-    let coordinate1 = "30.173226,120.269337"
-    let coordinate2 = "30.188375,120.263167"
-    let urlStr = "https://maps.googleapis.com/maps/api/directions/json?origin=\(coordinate1)&destination=\(coordinate2)&key=AIzaSyCQJO6u77UF8FLdqBps0JzA0jjbBdkLuWI"
-    
-    guard let url = URL(string: urlStr) else {
-      print("Error: cannot create URL")
-      return
     }
-    let urlRequest = URLRequest(url: url)
-    // set up the session
-    let config = URLSessionConfiguration.default
-    let session = URLSession(configuration: config)
-
-    // make the request
-    let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
-        
-    enum JSONError: String, Error {
-      case NoData = "ERROR: no data"
-      case ConversionFailed = "ERROR: conversion from JSON failed"
-    }
-        
-      do {
-        guard let data = data else {
-          throw JSONError.NoData
-        }
-        guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary else {
-          throw JSONError.ConversionFailed
-        }
-        print(json)
-      } catch let error as JSONError {
-        print(error.rawValue)
-      } catch let error as NSError {
-        print(error.debugDescription)
-      }
-        
-    })
-    let path = GMSPath(fromEncodedPath: "igdwDcfa}Uk@NiBX|@dDPjA@d@?dBAxAOh@}HJwJLuGF{LTwBF}CT{Kt@kEZaG^gCTiCPK`@AbBE~FClDY?")
-    let polyline = GMSPolyline(path:path)
-    polyline.strokeWidth = 4
-    polyline.strokeColor = UIColor.init(hue: 210, saturation: 88, brightness: 84, alpha: 1)
-    polyline.map = mapView
-    task.resume()
-    
-  }
 
     
 }
