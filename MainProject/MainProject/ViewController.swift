@@ -12,7 +12,15 @@ import GooglePlaces
 
 class ViewController: UIViewController {
 
-    // You don't need to modify the default init(nibName:bundle:) method.
+    
+    var street_number: String = ""
+    var route: String = ""
+    var neighborhood: String =  ""
+    var locality: String = ""
+    var country: String = ""
+    var postal_code: String = ""
+    var postal_code_suffix: String = ""
+    
 
     override func loadView() {
       // Create a GMSCameraPosition that tells the map to display the
@@ -44,15 +52,11 @@ class ViewController: UIViewController {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
 
-        // Specify the place data types to return.
-        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-          UInt(GMSPlaceField.placeID.rawValue))!
-        autocompleteController.placeFields = fields
 
         // Specify a filter.
-        let filter = GMSAutocompleteFilter()
-        filter.type = .address
-        autocompleteController.autocompleteFilter = filter
+        let addressFilter = GMSAutocompleteFilter()
+        addressFilter.type = .address
+        autocompleteController.autocompleteFilter = addressFilter
 
         // Display the autocomplete view controller.
         present(autocompleteController, animated: true, completion: nil)
@@ -66,38 +70,88 @@ class ViewController: UIViewController {
         btnLaunchAc.addTarget(self, action: #selector(autocompleteClicked), for: .touchUpInside)
         self.view.addSubview(btnLaunchAc)
       }
+    func printStuff() {
+        print(street_number)
+        print(route)
+        print(neighborhood)
+        print(locality)
+        print(country)
+        print(postal_code)
+        print(postal_code_suffix)
+        
+        street_number = ""
+        route = ""
+        neighborhood = ""
+        locality = ""
+        country = ""
+        postal_code = ""
+        postal_code_suffix = ""
+        
+    }
+    }
+extension ViewController: GMSAutocompleteViewControllerDelegate {
 
+  // Handle the user's selection.
+  func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+    // Print place info to the console
+    print("Place name: \(place.name ?? "")")
+    print("Place address: \(place.formattedAddress ?? "")")
+    print("Place attributions: \(String(describing: place.attributions))")
+    print("Place Latitude: \(place.coordinate.latitude)")
+    print("Place Latitude: \(place.coordinate.longitude)")
+
+    // Get the address components.
+    if let addressLines = place.addressComponents {
+      // Populate all of the address fields we can find.
+      for field in addressLines {
+        //field was field.stype before
+        switch field.type{
+        case kGMSPlaceTypeStreetNumber:
+          street_number = field.name
+        case kGMSPlaceTypeRoute:
+          route = field.name
+        case kGMSPlaceTypeNeighborhood:
+          neighborhood = field.name
+        case kGMSPlaceTypeLocality:
+          locality = field.name
+        case kGMSPlaceTypeCountry:
+          country = field.name
+        case kGMSPlaceTypePostalCode:
+          postal_code = field.name
+        case kGMSPlaceTypePostalCodeSuffix:
+          postal_code_suffix = field.name
+        // Print the items we aren't using.
+        default:
+            print("Type: \(field.type), Name: \(field.name)")
+        }
+      }
     }
 
-    extension ViewController: GMSAutocompleteViewControllerDelegate {
+    // Call custom function to populate the address form.
+    printStuff()
 
-      // Handle the user's selection.
-       func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
-        dismiss(animated: true, completion: nil)
-      }
-        
-      func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
-      }
+    // Close the autocomplete widget.
+    self.dismiss(animated: true, completion: nil)
+  }
 
-      // User canceled the operation.
-      func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        dismiss(animated: true, completion: nil)
-      }
+  func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+    // TODO: handle the error.
+    print("Error: ", error.localizedDescription)
+  }
 
-      // Turn the network activity indicator on and off again.
-      func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-      }
+  func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+    dismiss(animated: true, completion: nil)
+  }
 
-      func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-      }
+  // Show the network activity indicator.
+  func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+  }
 
+  // Hide the network activity indicator.
+  func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+  }
+  
 }
-
-
+    
