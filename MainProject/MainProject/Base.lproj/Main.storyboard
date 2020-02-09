@@ -36,7 +36,7 @@
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="85.714285714285708"/>
         </scene>
-        <!--Google Maps-->
+        <!--Safe Vibes-->
         <scene sceneID="xTI-f0-Ybq">
             <objects>
                 <viewController id="v8A-Jt-Mdt" customClass="MapVC" customModule="MainProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,7 +88,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vK9-4d-MW6"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Google Maps" id="fXh-LD-kQL"/>
+                    <navigationItem key="navigationItem" title="Safe Vibes" id="fXh-LD-kQL"/>
                     <connections>
                         <outlet property="mapView" destination="uTF-Dv-QdH" id="rY7-DV-9Z5"/>
                         <outlet property="txtSearch" destination="GPa-US-yby" id="0K8-a5-jeA"/>

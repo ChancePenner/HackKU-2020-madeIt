@@ -11,6 +11,7 @@ import GoogleMaps
 import GooglePlaces
 
 class MapVC: UIViewController {
+ 
 
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var txtSearch: UITextField!
@@ -21,7 +22,7 @@ class MapVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+print("HELLO")
         // Do any additional setup after loading the view.
         mapView.settings.compassButton = true
         mapView.isMyLocationEnabled = true
@@ -52,7 +53,7 @@ class MapVC: UIViewController {
 extension MapVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        print("locationsMapVC = \(locValue.latitude) \(locValue.longitude)")
        // lblocation.text = "latitude = \(locValue.latitude), longitude = \(locValue.longitude)"
     }
 }
@@ -92,7 +93,13 @@ print("Place Longitude: \(place.coordinate.longitude)")
        marker.iconView = markerView
        marker.map = self.mapView
        
-       self.mapView.camera = GMSCameraPosition.camera(withTarget: cord2D, zoom: 15)
+        let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 6)
+        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        view = mapView
+        
+        
+        
+//       self.mapView.camera = GMSCameraPosition.camera(withTarget: cord2D, zoom: 15)
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {

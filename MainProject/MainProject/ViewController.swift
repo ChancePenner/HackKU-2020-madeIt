@@ -12,6 +12,8 @@ import GooglePlaces
 import CoreLocation
 
 class ViewController: UIViewController {
+    
+    
 
     let locationManager = CLLocationManager()
     
@@ -19,6 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         getCurrentLocation()
+        print("HIT")
     }
     
     func getCurrentLocation() {
