@@ -35,12 +35,10 @@ class MainMenu: UIViewController {
                   .responseJSON { response in
                     debugPrint(response)
                     
-                    print("peepee")
                 }
 
               }
-    print("I DIDNT DO ANYTHING")
-          
+
     }
           
           override func viewDidLoad() {

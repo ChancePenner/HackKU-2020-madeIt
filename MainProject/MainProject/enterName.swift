@@ -30,7 +30,7 @@ private func configureTapGesture(){
     @IBAction func buttonSubmit(_ sender: Any) {
         
         view.endEditing(true)
-        userName = nameInput.text ?? "this didnt work fucker"
+        userName = nameInput.text ?? "this didnt work"
         
     }
     
