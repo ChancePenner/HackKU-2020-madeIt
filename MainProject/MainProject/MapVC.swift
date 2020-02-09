@@ -16,6 +16,9 @@ var currentLocationName = ""
 var destinationLocationName = ""
 var destinationLatitude = 0.0
 var destinationLongitude = 0.0
+var distanceInMeters = 0.0
+var distanceInMiles = 0.0
+
 
 class MapVC: UIViewController {
  
@@ -23,11 +26,12 @@ class MapVC: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var txtSearch: UITextField!
     
+    @IBOutlet weak var distanceTracker: UILabel!
     
     @IBAction func locationTapped(_ sender: Any) {
         gotoPlaces()
     }
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         mapView.settings.compassButton = true
@@ -124,6 +128,7 @@ class MapVC: UIViewController {
         task.resume()
     }
     
+    
     func drawPath(from polyStr: String){
         let path = GMSPath(fromEncodedPath: polyStr)
         let polyline = GMSPolyline(path: path)
@@ -134,7 +139,7 @@ class MapVC: UIViewController {
         let currentZoom = mapView.camera.zoom
         mapView.animate(toZoom: currentZoom - 1.4)
     }
-    
+
 
 }
 
@@ -192,7 +197,22 @@ print("Place Longitude: \(destinationLongitude)")
     marker2.map = mapView
       getRouteSteps(from:marker1.position, to:marker2.position)
         
+        let coordinate1 = CLLocation(latitude: currentLatitude, longitude: currentLongitude)
         
+        let coordinate2 = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+        
+        distanceInMeters = coordinate2.distance(from: coordinate1)
+        
+        distanceInMiles = distanceInMeters * 0.000621371
+        
+        print(String(format: "%1f", distanceInMiles))
+        
+        let distanceString = (String(format: "%.1f", distanceInMiles) + "mi")
+        print(distanceString)
+        self.distanceTracker.text = distanceString
+        print("distance is: ")
+//        self.distanceTracker.text = (self.distanceTracker.text ?? "")
+        print(self.distanceTracker.text ?? "")
         
                 
 //       let marker = GMSMarker()

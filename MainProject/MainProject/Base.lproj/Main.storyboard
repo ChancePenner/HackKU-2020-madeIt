@@ -121,12 +121,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PgC-OH-8dp">
-                                <rect key="frame" x="74" y="301" width="267" height="34"/>
+                                <rect key="frame" x="74" y="257" width="267" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TuL-bz-UgE">
-                                <rect key="frame" x="129" y="394" width="157" height="46"/>
+                                <rect key="frame" x="129" y="350" width="157" height="36"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Submit">
@@ -200,6 +200,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSe-t4-Rr0">
+                                <rect key="frame" x="5" y="788" width="198" height="54"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbB-Hp-69V">
                                 <rect key="frame" x="10" y="98" width="394" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -224,22 +230,27 @@
                             <constraint firstItem="5YN-M2-tdp" firstAttribute="trailing" secondItem="JbB-Hp-69V" secondAttribute="trailing" constant="10" id="U5B-Ja-vHC"/>
                             <constraint firstItem="pRU-A2-gOi" firstAttribute="leading" secondItem="5YN-M2-tdp" secondAttribute="leading" id="UiO-Wc-hyG"/>
                             <constraint firstItem="5YN-M2-tdp" firstAttribute="trailing" secondItem="JbB-Hp-69V" secondAttribute="trailing" constant="10" id="Uxm-MH-1W0"/>
+                            <constraint firstItem="FSe-t4-Rr0" firstAttribute="leading" secondItem="5YN-M2-tdp" secondAttribute="leading" constant="5" id="WXc-zZ-HNE"/>
                             <constraint firstItem="UXU-GM-syE" firstAttribute="leading" secondItem="5YN-M2-tdp" secondAttribute="leading" constant="10" id="acn-EO-NFX"/>
+                            <constraint firstItem="5YN-M2-tdp" firstAttribute="bottom" secondItem="FSe-t4-Rr0" secondAttribute="bottom" constant="20" id="fzT-8b-Zhb"/>
+                            <constraint firstItem="FSe-t4-Rr0" firstAttribute="top" secondItem="UXU-GM-syE" secondAttribute="bottom" constant="650" id="krQ-U2-MRz"/>
                             <constraint firstAttribute="bottom" secondItem="pRU-A2-gOi" secondAttribute="bottom" id="pXC-qn-3X0"/>
                             <constraint firstItem="JbB-Hp-69V" firstAttribute="trailing" secondItem="UXU-GM-syE" secondAttribute="trailing" id="sCg-tZ-1E3"/>
+                            <constraint firstItem="5YN-M2-tdp" firstAttribute="trailing" secondItem="FSe-t4-Rr0" secondAttribute="trailing" constant="211" id="u6K-o2-yyb"/>
                             <constraint firstItem="JbB-Hp-69V" firstAttribute="bottom" secondItem="UXU-GM-syE" secondAttribute="bottom" id="vam-ll-UJ2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5YN-M2-tdp"/>
                     </view>
                     <navigationItem key="navigationItem" title="madeIt" id="MxY-0j-wBG"/>
                     <connections>
+                        <outlet property="distanceTracker" destination="FSe-t4-Rr0" id="L1V-68-73a"/>
                         <outlet property="mapView" destination="pRU-A2-gOi" id="jzA-vw-anb"/>
                         <outlet property="txtSearch" destination="UXU-GM-syE" id="D4f-RB-HWM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xZ-Om-hHN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2874" y="-618"/>
+            <point key="canvasLocation" x="2873.913043478261" y="-618.08035714285711"/>
         </scene>
         <!--Enter Number-->
         <scene sceneID="VQX-Qb-vsh">
@@ -256,12 +267,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LWg-Wi-ieD">
-                                <rect key="frame" x="74" y="301" width="267" height="34"/>
+                                <rect key="frame" x="74" y="247" width="267" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4x-Xe-eSE">
-                                <rect key="frame" x="129" y="394" width="157" height="46"/>
+                                <rect key="frame" x="129" y="340" width="157" height="36"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Submit">
