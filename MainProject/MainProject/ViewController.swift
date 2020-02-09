@@ -16,30 +16,33 @@ class ViewController: UIViewController {
    // You don't need to modify the default init(nibName:bundle:) method.
 
           @IBAction func buttonClicked(_ sender: Any) {
-              let functionURL = "https://honeydew-serval-3887.twil.io/epic"
-              if let url = URL(string: functionURL) {
-                  let task = URLSession.shared.dataTask(with: url) {
-                      data, response, error in
-                      if error != nil {
-                          print(error!)
-                      }
-                  }
-                  task.resume()
-      //        if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
-      //           let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"] {
-      //          //  let url="https://honeydew-serval-3887.twil.io/epic"
-      //         let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
-      //          let parameters = ["From": "+18065471980", "To": "9133134958", "Body": "Hello from Swift!"]
-      //
-      //          Alamofire.request(url, method: .post, parameters: parameters)
-      //            .authenticate(user: accountSID, password: authToken)
-      //            .responseJSON { response in
-      //              debugPrint(response)
+//              let functionURL = "https://honeydew-serval-3887.twil.io/epic"
+//              if let url = URL(string: functionURL) {
+//                  let task = URLSession.shared.dataTask(with: url) {
+//                      data, response, error in
+//                      if error != nil {
+//                          print(error!)
+//                      }
+//                  }
+//                  task.resume()
+              if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
+                 let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"] {
+                print("Generating URL")
+               let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
+                let parameters = ["From": "+18065471980", "To": "9133134958", "Body": "Markus made it home!!!"]
+                print("Parameters Set!")
+      
+                Alamofire.request(url, method: .post, parameters: parameters)
+                  .authenticate(user: accountSID, password: authToken)
+                  .responseJSON { response in
+                    debugPrint(response)
+                    
+                    print("peepee")
                 }
 
               }
           
-
+    }
           
           override func viewDidLoad() {
               super.viewDidLoad()
