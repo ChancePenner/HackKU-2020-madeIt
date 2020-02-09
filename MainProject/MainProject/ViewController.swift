@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
-let camera = GMSCameraPosition.camera(withLatitude: 39.0172657, longitude: -95.2640413, zoom: 16.0)
+let camera = GMSCameraPosition.camera(withLatitude: 39.0172657, longitude: -95.2640413, zoom: 6.0)
 let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
 
 class ViewController: UIViewController {
@@ -43,7 +43,14 @@ class ViewController: UIViewController {
 
       let distanceInMeters = coordinate2.distance(from: coordinate1) //Haonan: not show on map yet
       print(distanceInMeters)
-        
+      let path = GMSMutablePath()
+      path.add(CLLocationCoordinate2D(latitude: 39.0172657, longitude: -95.2640413))
+      path.add(CLLocationCoordinate2D(latitude: 38.9536, longitude: -94.7336))
+      let polyline = GMSPolyline(path: path)
+      let solidRed = GMSStrokeStyle.solidColor(.red)
+      polyline.spans = [GMSStyleSpan(style: solidRed)]
+      polyline.map = mapView
+     
       getRouteSteps(from:marker1.position, to:marker2.position)
     
     }
