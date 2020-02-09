@@ -42,7 +42,10 @@ class ViewController: UIViewController {
       marker2.map = mapView
 
       let distanceInMeters = coordinate2.distance(from: coordinate1) //Haonan: not show on map yet
-      print(distanceInMeters)
+      let distanceInMiles = distanceInMeters * 0.000621371
+        
+      print(String(format: "%.1f", distanceInMiles))
+
         
       getRouteSteps(from:marker1.position, to:marker2.position)
     
