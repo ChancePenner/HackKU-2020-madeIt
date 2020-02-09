@@ -149,7 +149,7 @@ extension MapVC: CLLocationManagerDelegate {
 
 extension MapVC: GMSAutocompleteViewControllerDelegate {
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        
+        sentMessage = false //reinitialize to false
 //         print("Place name: \(String(describing: place.name))")
         print("Place name: \(place.name ?? "")")
         destinationLocationName = (place.name ?? "")
@@ -159,6 +159,8 @@ extension MapVC: GMSAutocompleteViewControllerDelegate {
        self.txtSearch.text = place.name
         destinationLatitude = place.coordinate.latitude
         destinationLongitude = place.coordinate.longitude
+        
+        
        /*
        let placeGmap = GoogleMapObjects()
        placeGmap.lat = place.coordinate.latitude

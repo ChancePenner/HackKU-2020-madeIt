@@ -13,7 +13,7 @@ import CoreLocation
 import Foundation
 import Alamofire
 
-
+var sentMessage = false
 var userName = "Markus"
 var sendMessage = true
 class ViewController: UIViewController {
@@ -64,10 +64,11 @@ extension ViewController: CLLocationManagerDelegate {
         currentLongitude = locValue.longitude
         sendMessage = haveArrived()
         
-        if(sendMessage == true)
+        if(sendMessage && !sentMessage)
         {
-            if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
-                            let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"] {
+            print("WE IN BOIS")
+            let accountSID = "ACd966c500021c1c1bdb998330b07a4df1"
+            let authToken = "bd5822b62c442172a31403f7ee6d19aa"
                 print("im here setting stuff up")
                           let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
                            let parameters = ["From": "+18065471980", "To": "9133134958", "Body": "\(userName) made it home!!!"]
@@ -79,8 +80,9 @@ extension ViewController: CLLocationManagerDelegate {
                                
                            }
 
-                         }
+                         
             print("true")
+            sentMessage = true
         }
     print(sendMessage)
     }
