@@ -10,6 +10,11 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
+var currentLatitude = 0.0
+var currentLongitude = 0.0
+var currentLocationName = ""
+var destinationLocationName = ""
+
 class MapVC: UIViewController {
  
 
@@ -27,7 +32,7 @@ class MapVC: UIViewController {
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         
-        let cord2D = CLLocationCoordinate2D(latitude: (38.9543), longitude: (-95.2558))
+        let cord2D = CLLocationCoordinate2D(latitude: (38.958066723838634), longitude: (-95.25361727619011))
         
          self.mapView.camera = GMSCameraPosition.camera(withTarget: cord2D, zoom: 15)
         
@@ -49,6 +54,85 @@ class MapVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    func getRouteSteps(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
+
+        let session = URLSession.shared
+
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=false&mode=driving&key=AIzaSyCQJO6u77UF8FLdqBps0JzA0jjbBdkLuWI")!
+
+        let task = session.dataTask(with: url, completionHandler: {
+            (data, response, error) in
+
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+
+            guard let jsonResult = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any] else {
+
+                print("error in JSONSerialization")
+                return
+
+            }
+
+
+
+            guard let routes = jsonResult["routes"] as? [Any] else {
+                return
+            }
+
+            guard let route = routes[0] as? [String: Any] else {
+                return
+            }
+
+            guard let legs = route["legs"] as? [Any] else {
+                return
+            }
+
+            guard let leg = legs[0] as? [String: Any] else {
+                return
+            }
+
+            guard let steps = leg["steps"] as? [Any] else {
+                return
+            }
+              for item in steps {
+
+                guard let step = item as? [String: Any] else {
+                    return
+                }
+
+                guard let polyline = step["polyline"] as? [String: Any] else {
+                    return
+                }
+
+                guard let polyLineString = polyline["points"] as? String else {
+                    return
+                }
+
+                //Call this method to draw path on map
+                DispatchQueue.main.async {
+                    self.drawPath(from: polyLineString)
+                }
+
+            }
+        })
+        task.resume()
+    }
+    
+    func drawPath(from polyStr: String){
+        let path = GMSPath(fromEncodedPath: polyStr)
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeWidth = 3.0
+        polyline.map = mapView // Google MapView
+
+
+        let currentZoom = mapView.camera.zoom
+        mapView.animate(toZoom: currentZoom - 1.4)
+    }
+    
 
 }
 
@@ -66,6 +150,7 @@ extension MapVC: GMSAutocompleteViewControllerDelegate {
         
 //         print("Place name: \(String(describing: place.name))")
         print("Place name: \(place.name ?? "")")
+        destinationLocationName = (place.name ?? "")
         dismiss(animated: true, completion: nil)
        
        self.mapView.clear()
@@ -84,18 +169,37 @@ print("Place Latitude: \(place.coordinate.latitude)")
 print("Place Longitude: \(place.coordinate.longitude)")
         //DEBUG SECTION
 
+       
+        
        let cord2D = CLLocationCoordinate2D(latitude: (place.coordinate.latitude), longitude: (place.coordinate.longitude))
         
+        
+    let marker1 = GMSMarker()
+      marker1.position = CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude)
+//        marker1.title = "TESTING"
+//    marker1.snippet = "HangZhou"
+    marker1.map = mapView
+      
+    let marker2 = GMSMarker()
+//      marker2.position = CLLocationCoordinate2D(latitude: 51.5074, longitude: -0.1278)
+        marker2.position = cord2D
+    marker2.title = destinationLocationName
+//    marker2.snippet = destinationLocationName
+    marker2.map = mapView
+      getRouteSteps(from:marker1.position, to:marker2.position)
+        
+        
+        
                 
-       let marker = GMSMarker()
-       marker.position =  cord2D
-       marker.title = "Location"
-       marker.snippet = place.name
-       
-       let markerImage = UIImage(named: "icon_offer_pickup")!
-       let markerView = UIImageView(image: markerImage)
-       marker.iconView = markerView
-       marker.map = self.mapView
+//       let marker = GMSMarker()
+//       marker.position =  cord2D
+//       marker.title = "Location"
+//       marker.snippet = place.name
+//
+//       let markerImage = UIImage(named: "icon_offer_pickup")!
+//       let markerView = UIImageView(image: markerImage)
+//       marker.iconView = markerView
+//       marker.map = self.mapView
         
         
         

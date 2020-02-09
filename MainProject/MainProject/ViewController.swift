@@ -12,6 +12,7 @@ import GooglePlaces
 import CoreLocation
 
 
+
 class ViewController: UIViewController {
     
     
@@ -46,13 +47,14 @@ extension ViewController: CLLocationManagerDelegate {
         [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
+        currentLatitude = locValue.latitude
+        currentLongitude = locValue.longitude
+        
+        
     }
     
-    
-    
-    
 }
-    
+
 
     
     
