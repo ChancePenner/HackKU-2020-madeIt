@@ -15,6 +15,7 @@ import Alamofire
 var sentMessage = false
 var sendMessage = true
 var userName = "Markus"
+var phoneNumber = "5556451232"
 class MainMenu: UIViewController {
     let locationManager = CLLocationManager()
       

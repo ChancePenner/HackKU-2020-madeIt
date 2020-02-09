@@ -13,6 +13,7 @@
 		28E5F39623F010EF004F96D4 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E5F39523F010EF004F96D4 /* MapVC.swift */; };
 		291E9AD86C6DB0C7409F972E /* libPods-MainProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C901A761E18965F054E40E66 /* libPods-MainProject.a */; };
 		3E109B1723EFFC30005BEA13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E109B1523EFFC30005BEA13 /* Main.storyboard */; };
+		9B703C8923F012F8005DF758 /* enterNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B703C8823F012F8005DF758 /* enterNumber.swift */; };
 		9BD5AADD23EF1D9600796BFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5AADC23EF1D9600796BFE /* AppDelegate.swift */; };
 		9BD5AADF23EF1D9600796BFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5AADE23EF1D9600796BFE /* SceneDelegate.swift */; };
 		9BD5AAE623EF1D9600796BFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD5AAE523EF1D9600796BFE /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		28E5F39523F010EF004F96D4 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		2F63DD3246B4080C7AE4E8BE /* Pods-MainProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainProject.debug.xcconfig"; path = "Target Support Files/Pods-MainProject/Pods-MainProject.debug.xcconfig"; sourceTree = "<group>"; };
 		3E109B1623EFFC30005BEA13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9B703C8823F012F8005DF758 /* enterNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enterNumber.swift; sourceTree = "<group>"; };
 		9BD5AAD923EF1D9600796BFE /* MainProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MainProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD5AADC23EF1D9600796BFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD5AADE23EF1D9600796BFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				9BD5AAEA23EF1D9600796BFE /* Info.plist */,
 				3E109B1523EFFC30005BEA13 /* Main.storyboard */,
 				28E5F38A23EF9732004F96D4 /* enterName.swift */,
+				9B703C8823F012F8005DF758 /* enterNumber.swift */,
 				28E5F39523F010EF004F96D4 /* MapVC.swift */,
 			);
 			path = MainProject;
@@ -344,6 +347,7 @@
 				28E5F39623F010EF004F96D4 /* MapVC.swift in Sources */,
 				28E5F38B23EF9732004F96D4 /* enterName.swift in Sources */,
 				9BD5AADD23EF1D9600796BFE /* AppDelegate.swift in Sources */,
+				9B703C8923F012F8005DF758 /* enterNumber.swift in Sources */,
 				9BD5AADF23EF1D9600796BFE /* SceneDelegate.swift in Sources */,
 				28E5F38723EF54F1004F96D4 /* MainMenu.swift in Sources */,
 			);
