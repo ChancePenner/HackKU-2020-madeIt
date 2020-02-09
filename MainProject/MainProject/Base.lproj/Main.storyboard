@@ -179,7 +179,7 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="119.86607142857142"/>
         </scene>
-        <!--Map-->
+        <!--madeIt-->
         <scene sceneID="oK4-Y5-Gqr">
             <objects>
                 <viewController id="ySf-m1-aqa" customClass="MapVC" customModule="MainProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -231,7 +231,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5YN-M2-tdp"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="MxY-0j-wBG"/>
+                    <navigationItem key="navigationItem" title="madeIt" id="MxY-0j-wBG"/>
                     <connections>
                         <outlet property="mapView" destination="pRU-A2-gOi" id="jzA-vw-anb"/>
                         <outlet property="txtSearch" destination="UXU-GM-syE" id="D4f-RB-HWM"/>
