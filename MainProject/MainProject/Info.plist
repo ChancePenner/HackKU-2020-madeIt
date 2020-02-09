@@ -11,7 +11,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>madeIt</string>
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
@@ -20,15 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Allow app to use device location services?</string>
-
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>Allow app to use device location services?</string>
-
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>Allow app to use device location services?</string>
-    
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow app to use device location services?</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow app to use device location services?</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Allow app to use device location services?</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
