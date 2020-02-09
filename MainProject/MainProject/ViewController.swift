@@ -11,6 +11,7 @@ import GoogleMaps
 import GooglePlaces
 import CoreLocation
 
+
 class ViewController: UIViewController {
     
     
@@ -21,7 +22,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         getCurrentLocation()
-        print("HIT")
+        
+       
     }
     
     func getCurrentLocation() {
@@ -45,6 +47,10 @@ extension ViewController: CLLocationManagerDelegate {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
+    
+    
+    
+    
 }
     
 
@@ -94,4 +100,5 @@ extension ViewController: CLLocationManagerDelegate {
 //    {
 //        print("Clicked on Marker")
 //    }
+
 

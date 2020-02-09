@@ -22,11 +22,14 @@ class MapVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-print("HELLO")
         // Do any additional setup after loading the view.
         mapView.settings.compassButton = true
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
+        
+        let cord2D = CLLocationCoordinate2D(latitude: (38.9543), longitude: (-95.2558))
+        
+         self.mapView.camera = GMSCameraPosition.camera(withTarget: cord2D, zoom: 15)
         
     }
     
@@ -53,7 +56,7 @@ print("HELLO")
 extension MapVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        print("locationsMapVC = \(locValue.latitude) \(locValue.longitude)")
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
        // lblocation.text = "latitude = \(locValue.latitude), longitude = \(locValue.longitude)"
     }
 }
@@ -82,7 +85,8 @@ print("Place Longitude: \(place.coordinate.longitude)")
         //DEBUG SECTION
 
        let cord2D = CLLocationCoordinate2D(latitude: (place.coordinate.latitude), longitude: (place.coordinate.longitude))
-       
+        
+                
        let marker = GMSMarker()
        marker.position =  cord2D
        marker.title = "Location"
@@ -92,14 +96,10 @@ print("Place Longitude: \(place.coordinate.longitude)")
        let markerView = UIImageView(image: markerImage)
        marker.iconView = markerView
        marker.map = self.mapView
-       
-        let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 6)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        view = mapView
         
         
         
-//       self.mapView.camera = GMSCameraPosition.camera(withTarget: cord2D, zoom: 15)
+       self.mapView.camera = GMSCameraPosition.camera(withTarget: cord2D, zoom: 15)
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
