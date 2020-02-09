@@ -14,6 +14,8 @@ var currentLatitude = 0.0
 var currentLongitude = 0.0
 var currentLocationName = ""
 var destinationLocationName = ""
+var destinationLatitude = 0.0
+var destinationLongitude = 0.0
 
 class MapVC: UIViewController {
  
@@ -155,7 +157,8 @@ extension MapVC: GMSAutocompleteViewControllerDelegate {
        
        self.mapView.clear()
        self.txtSearch.text = place.name
-       
+        destinationLatitude = place.coordinate.latitude
+        destinationLongitude = place.coordinate.longitude
        /*
        let placeGmap = GoogleMapObjects()
        placeGmap.lat = place.coordinate.latitude
@@ -164,10 +167,9 @@ extension MapVC: GMSAutocompleteViewControllerDelegate {
        
        //self.delegate?.getThePlaceAddress(vc: self, place: placeGmap, tag: self.FieldTag)
    
-        //DEBUG SECTION
-print("Place Latitude: \(place.coordinate.latitude)")
-print("Place Longitude: \(place.coordinate.longitude)")
-        //DEBUG SECTION
+
+print("Place Latitude: \(destinationLatitude)")
+print("Place Longitude: \(destinationLongitude)")
 
        
         

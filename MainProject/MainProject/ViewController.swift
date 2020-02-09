@@ -10,9 +10,12 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import CoreLocation
+import Foundation
+import Alamofire
 
 
-
+var userName = "Markus"
+var sendMessage = true
 class ViewController: UIViewController {
     
     
@@ -39,6 +42,16 @@ class ViewController: UIViewController {
         }
     }
     
+    func haveArrived() -> Bool {
+        if((currentLatitude <= destinationLatitude + 0.2 && currentLatitude >= destinationLatitude - 0.2) && (currentLongitude <= destinationLongitude + 0.2 && currentLongitude >= destinationLongitude - 0.2))
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
     
 }
 
@@ -49,8 +62,27 @@ extension ViewController: CLLocationManagerDelegate {
         print("locations = \(locValue.latitude) \(locValue.longitude)")
         currentLatitude = locValue.latitude
         currentLongitude = locValue.longitude
+        sendMessage = haveArrived()
         
-        
+        if(sendMessage == true)
+        {
+            if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
+                            let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"] {
+                print("im here setting stuff up")
+                          let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
+                           let parameters = ["From": "+18065471980", "To": "9133134958", "Body": "\(userName) made it home!!!"]
+                 
+                           Alamofire.request(url, method: .post, parameters: parameters)
+                             .authenticate(user: accountSID, password: authToken)
+                             .responseJSON { response in
+                               debugPrint(response)
+                               
+                           }
+
+                         }
+            print("true")
+        }
+    print(sendMessage)
     }
     
 }
