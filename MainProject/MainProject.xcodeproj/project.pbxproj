@@ -10,8 +10,8 @@
 		28E5F38523EF3204004F96D4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 28E5F38423EF3204004F96D4 /* Alamofire */; };
 		28E5F38723EF54F1004F96D4 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E5F38623EF54F1004F96D4 /* MainMenu.swift */; };
 		28E5F38B23EF9732004F96D4 /* enterName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E5F38A23EF9732004F96D4 /* enterName.swift */; };
+		28E5F39023F00A98004F96D4 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E5F38F23F00A98004F96D4 /* MapVC.swift */; };
 		291E9AD86C6DB0C7409F972E /* libPods-MainProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C901A761E18965F054E40E66 /* libPods-MainProject.a */; };
-
 		3E109B1723EFFC30005BEA13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E109B1523EFFC30005BEA13 /* Main.storyboard */; };
 		9BD5AADD23EF1D9600796BFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5AADC23EF1D9600796BFE /* AppDelegate.swift */; };
 		9BD5AADF23EF1D9600796BFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5AADE23EF1D9600796BFE /* SceneDelegate.swift */; };
@@ -19,7 +19,6 @@
 		9BD5AAE923EF1D9600796BFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD5AAE723EF1D9600796BFE /* LaunchScreen.storyboard */; };
 		9BD5AAF423EF1D9700796BFE /* MainProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5AAF323EF1D9700796BFE /* MainProjectTests.swift */; };
 		9BD5AAFF23EF1D9700796BFE /* MainProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5AAFE23EF1D9700796BFE /* MainProjectUITests.swift */; };
-		9BF7756B23EFCD0E000E7E08 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9BF7756A23EFCD0E000E7E08 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +42,8 @@
 		277731258400B3EC2AA19359 /* Pods-MainProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainProject.release.xcconfig"; path = "Target Support Files/Pods-MainProject/Pods-MainProject.release.xcconfig"; sourceTree = "<group>"; };
 		28E5F38623EF54F1004F96D4 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		28E5F38A23EF9732004F96D4 /* enterName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enterName.swift; sourceTree = "<group>"; };
+		28E5F38F23F00A98004F96D4 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapVC.swift; path = ../../../../backupfiles/MapVC.swift; sourceTree = "<group>"; };
 		2F63DD3246B4080C7AE4E8BE /* Pods-MainProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MainProject.debug.xcconfig"; path = "Target Support Files/Pods-MainProject/Pods-MainProject.debug.xcconfig"; sourceTree = "<group>"; };
-
 		3E109B1623EFFC30005BEA13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BD5AAD923EF1D9600796BFE /* MainProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MainProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD5AADC23EF1D9600796BFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,7 +66,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				291E9AD86C6DB0C7409F972E /* libPods-MainProject.a in Frameworks */,
-
 				28E5F38523EF3204004F96D4 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,9 +126,9 @@
 				9BD5AAE523EF1D9600796BFE /* Assets.xcassets */,
 				9BD5AAE723EF1D9600796BFE /* LaunchScreen.storyboard */,
 				9BD5AAEA23EF1D9600796BFE /* Info.plist */,
-
 				3E109B1523EFFC30005BEA13 /* Main.storyboard */,
 				28E5F38A23EF9732004F96D4 /* enterName.swift */,
+				28E5F38F23F00A98004F96D4 /* MapVC.swift */,
 			);
 			path = MainProject;
 			sourceTree = "<group>";
@@ -181,7 +179,6 @@
 			);
 			name = MainProject;
 			packageProductDependencies = (
-
 				28E5F38423EF3204004F96D4 /* Alamofire */,
 			);
 			productName = MainProject;
@@ -257,7 +254,6 @@
 			);
 			mainGroup = 9BD5AAD023EF1D9600796BFE;
 			packageReferences = (
-
 				28E5F38323EF3204004F96D4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 9BD5AADA23EF1D9600796BFE /* Products */;
@@ -345,7 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
+				28E5F39023F00A98004F96D4 /* MapVC.swift in Sources */,
 				28E5F38B23EF9732004F96D4 /* enterName.swift in Sources */,
 				9BD5AADD23EF1D9600796BFE /* AppDelegate.swift in Sources */,
 				9BD5AADF23EF1D9600796BFE /* SceneDelegate.swift in Sources */,
@@ -682,7 +678,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-
 		28E5F38323EF3204004F96D4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -694,7 +689,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-
 		28E5F38423EF3204004F96D4 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 28E5F38323EF3204004F96D4 /* XCRemoteSwiftPackageReference "Alamofire" */;

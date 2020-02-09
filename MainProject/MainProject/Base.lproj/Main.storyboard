@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gZ3-4Z-Qbf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
@@ -11,13 +10,11 @@
         <!--Main Menu-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-
                 <viewController id="BYZ-38-t0r" customClass="MainMenu" customModule="MainProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="jof-xh-6rG">
                                 <rect key="frame" x="65" y="332" width="284" height="315"/>
                                 <subviews>
@@ -28,7 +25,7 @@
                                             <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AHD-ii-ria"/>
+                                            <segue destination="ySf-m1-aqa" kind="show" id="Pfc-Nr-kiN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVr-Gv-W9M">
@@ -47,9 +44,6 @@
                                         <state key="normal" title="Add Phone Numbers">
                                             <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b2Z-Eq-aNy"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -142,7 +136,6 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-
                             <constraint firstItem="TpD-Be-2OW" firstAttribute="trailing" secondItem="PgC-OH-8dp" secondAttribute="trailing" constant="73" id="4Kb-kk-drt"/>
                             <constraint firstItem="TuL-bz-UgE" firstAttribute="top" secondItem="PgC-OH-8dp" secondAttribute="bottom" constant="59" id="QsZ-Mi-hNm"/>
                             <constraint firstItem="TpD-Be-2OW" firstAttribute="bottom" secondItem="TuL-bz-UgE" secondAttribute="bottom" constant="422" id="U8F-kX-5CZ"/>
@@ -176,13 +169,74 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="IgW-ku-u8N"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xz-8b-QMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="119.86607142857142"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="oK4-Y5-Gqr">
+            <objects>
+                <viewController id="ySf-m1-aqa" customClass="MapVC" customModule="MainProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1jz-jE-04O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRU-A2-gOi" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Location" borderStyle="roundedRect" placeholder="Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UXU-GM-syE">
+                                <rect key="frame" x="10" y="98" width="394" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bSv-0E-OV1"/>
+                                </constraints>
+                                <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbB-Hp-69V">
+                                <rect key="frame" x="10" y="98" width="394" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Location">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="locationTapped:" destination="ySf-m1-aqa" eventType="touchUpInside" id="Rer-6l-t58"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pRU-A2-gOi" firstAttribute="top" secondItem="5YN-M2-tdp" secondAttribute="top" id="07G-8a-SqG"/>
+                            <constraint firstItem="5YN-M2-tdp" firstAttribute="trailing" secondItem="UXU-GM-syE" secondAttribute="trailing" constant="10" id="2yk-PT-dpv"/>
+                            <constraint firstItem="pRU-A2-gOi" firstAttribute="trailing" secondItem="5YN-M2-tdp" secondAttribute="trailing" id="9jr-sQ-fPK"/>
+                            <constraint firstItem="JbB-Hp-69V" firstAttribute="top" secondItem="5YN-M2-tdp" secondAttribute="top" constant="10" id="BC2-uq-k9q"/>
+                            <constraint firstItem="JbB-Hp-69V" firstAttribute="leading" secondItem="UXU-GM-syE" secondAttribute="leading" id="CB0-en-Lb1"/>
+                            <constraint firstItem="JbB-Hp-69V" firstAttribute="leading" secondItem="5YN-M2-tdp" secondAttribute="leading" constant="10" id="GPc-ld-Bnm"/>
+                            <constraint firstItem="JbB-Hp-69V" firstAttribute="leading" secondItem="5YN-M2-tdp" secondAttribute="leading" constant="10" id="KZL-aD-0et"/>
+                            <constraint firstItem="UXU-GM-syE" firstAttribute="top" secondItem="5YN-M2-tdp" secondAttribute="top" constant="10" id="Ntn-V2-M7F"/>
+                            <constraint firstItem="5YN-M2-tdp" firstAttribute="trailing" secondItem="JbB-Hp-69V" secondAttribute="trailing" constant="10" id="U5B-Ja-vHC"/>
+                            <constraint firstItem="pRU-A2-gOi" firstAttribute="leading" secondItem="5YN-M2-tdp" secondAttribute="leading" id="UiO-Wc-hyG"/>
+                            <constraint firstItem="5YN-M2-tdp" firstAttribute="trailing" secondItem="JbB-Hp-69V" secondAttribute="trailing" constant="10" id="Uxm-MH-1W0"/>
+                            <constraint firstItem="UXU-GM-syE" firstAttribute="leading" secondItem="5YN-M2-tdp" secondAttribute="leading" constant="10" id="acn-EO-NFX"/>
+                            <constraint firstAttribute="bottom" secondItem="pRU-A2-gOi" secondAttribute="bottom" id="pXC-qn-3X0"/>
+                            <constraint firstItem="JbB-Hp-69V" firstAttribute="trailing" secondItem="UXU-GM-syE" secondAttribute="trailing" id="sCg-tZ-1E3"/>
+                            <constraint firstItem="JbB-Hp-69V" firstAttribute="bottom" secondItem="UXU-GM-syE" secondAttribute="bottom" id="vam-ll-UJ2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5YN-M2-tdp"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="MxY-0j-wBG"/>
+                    <connections>
+                        <outlet property="mapView" destination="pRU-A2-gOi" id="jzA-vw-anb"/>
+                        <outlet property="txtSearch" destination="UXU-GM-syE" id="D4f-RB-HWM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1xZ-Om-hHN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2874" y="-618"/>
         </scene>
     </scenes>
     <resources>
