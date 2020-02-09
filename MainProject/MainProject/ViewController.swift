@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
- let camera = GMSCameraPosition.camera(withLatitude: 30.173226, longitude: 120.269337, zoom: 16.0)
+let camera = GMSCameraPosition.camera(withLatitude: 39.0172657, longitude: -95.2640413, zoom: 16.0)
 let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
 
 class ViewController: UIViewController {
@@ -28,17 +28,23 @@ class ViewController: UIViewController {
       // Creates a marker in the center of the map.
       // Creates a marker in the center of the map.
       let marker1 = GMSMarker()
-        marker1.position = CLLocationCoordinate2D(latitude: 39.0172657, longitude: -95.2640413)
+      marker1.position = CLLocationCoordinate2D(latitude: 39.0172657, longitude: -95.2640413)
+      let coordinate1 = CLLocation(latitude: 39.0172657, longitude: -95.2640413)
       marker1.title = "Home"
       marker1.snippet = "HangZhou"
       marker1.map = mapView
         
       let marker2 = GMSMarker()
-        marker2.position = CLLocationCoordinate2D(latitude: 38.9536, longitude: -94.7336)
+      marker2.position = CLLocationCoordinate2D(latitude: 38.9536, longitude: -94.7336)
+      let coordinate2 = CLLocation(latitude:38.9536 , longitude: -94.7336)
       marker2.title = "High School"
       marker2.snippet = "Hangzhou"
       marker2.map = mapView
-        getRouteSteps(from:marker1.position, to:marker2.position)
+
+      let distanceInMeters = coordinate2.distance(from: coordinate1) //Haonan: not show on map yet
+      print(distanceInMeters)
+        
+      getRouteSteps(from:marker1.position, to:marker2.position)
     
     }
     func getRouteSteps(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
@@ -46,7 +52,7 @@ class ViewController: UIViewController {
         let session = URLSession.shared
 
         let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=false&mode=driving&key=AIzaSyCQJO6u77UF8FLdqBps0JzA0jjbBdkLuWI")!
-
+        
         let task = session.dataTask(with: url, completionHandler: {
             (data, response, error) in
 
@@ -63,7 +69,7 @@ class ViewController: UIViewController {
             }
 
 
-
+        
             guard let routes = jsonResult["routes"] as? [Any] else {
                 return
             }
@@ -79,7 +85,7 @@ class ViewController: UIViewController {
             guard let leg = legs[0] as? [String: Any] else {
                 return
             }
-
+            
             guard let steps = leg["steps"] as? [Any] else {
                 return
             }
@@ -116,4 +122,5 @@ class ViewController: UIViewController {
         let currentZoom = mapView.camera.zoom
         mapView.animate(toZoom: currentZoom - 1.4)
     }
+   
 }
