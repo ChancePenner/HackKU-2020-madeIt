@@ -62,11 +62,11 @@ extension MainMenu: CLLocationManagerDelegate {
         if(sendMessage && !sentMessage)
         {
             print("WE IN BOIS")
-            let accountSID = "ACd966c500021c1c1bdb998330b07a4df1"
-            let authToken = "bd5822b62c442172a31403f7ee6d19aa"
+            let accountSID = "DONT STEAL"
+            let authToken = "MY ACCOUNT"
                 print("im here setting stuff up")
                           let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
-                           let parameters = ["From": "+18065471980", "To": "9133134958", "Body": "\(userName) made it to \(destinationLocationName)!!!"]
+                           let parameters = ["From": "+19032316611", "To": "${phone-number}", "Body": "\(userName) made it to \(destinationLocationName)!!!"]
                  
                            Alamofire.request(url, method: .post, parameters: parameters)
                              .authenticate(user: accountSID, password: authToken)
